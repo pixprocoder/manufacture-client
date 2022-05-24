@@ -6,7 +6,7 @@ const Parts = () => {
   console.log(parts);
   return (
     <section className="max-w-screen-2xl mx-auto">
-      <div className="flex gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6  gap-4">
         {parts.map((p) => (
           <div key={p._id}>
             <div class="card max-w-lg  shadow-xl">
@@ -20,7 +20,7 @@ const Parts = () => {
                 <p>Price: {p.price}</p>
                 <p>{p.desc}</p>
               </div>
-              <button className="btn btn-outline btn-primary uppercase">
+              <button className="btn  btn-primary uppercase">
                 purchase now
               </button>
             </div>

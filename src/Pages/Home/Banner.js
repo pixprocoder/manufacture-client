@@ -12,13 +12,13 @@ const Banner = () => {
             repudiandae et a id nisi. yes you can do this.
           </p>
 
-          <button class="btn btn-outline rounded-3xl">
+          <button class="btn btn-outline btn-primary rounded-3xl">
             {" "}
             START YOUR JOURNEY
           </button>
         </div>
       </div>
-      <h1 className="text-5xl absolute bottom-0 my-6"> Available Parts</h1>
+      <h1 className="text-5xl absolute bottom-0 mb-10"> Available Parts</h1>
     </div>
   );
 };
