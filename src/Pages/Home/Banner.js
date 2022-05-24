@@ -18,6 +18,7 @@ const Banner = () => {
           </button>
         </div>
       </div>
+      <h1 className="text-5xl absolute bottom-0 my-6"> Available Parts</h1>
     </div>
   );
 };

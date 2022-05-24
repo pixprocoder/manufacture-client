@@ -1,0 +1,29 @@
+[
+  {
+    "_id": 1,
+    "name": "Car engine",
+    "price": "$2253",
+    "min_quantity": 3,
+    "available_quantity": 5,
+    "desc": "This is The engine",
+    "img": "https://i.ibb.co/LdrNpPG/clock-ge481c1991-640.jpg"
+  },
+  {
+    "_id": 2,
+    "name": "Bike engine",
+    "price": "$2353",
+    "min_quantity": 7,
+    "available_quantity": 533,
+    "desc": "This is The bike engine",
+    "img": "https://i.ibb.co/LdrNpPG/clock-ge481c1991-640.jpg"
+  },
+  {
+    "_id": 3,
+    "name": "track engine",
+    "price": "$55533",
+    "min_quantity": 4,
+    "available_quantity": 55,
+    "desc": "This is The track engine",
+    "img": "https://i.ibb.co/LdrNpPG/clock-ge481c1991-640.jpg"
+  }
+]
