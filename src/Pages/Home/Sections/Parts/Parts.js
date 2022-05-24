@@ -5,8 +5,8 @@ const Parts = () => {
   const [parts] = useParts([]);
   console.log(parts);
   return (
-    <section className="max-w-screen-2xl mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6  gap-4">
+    <section className="max-w-screen-2xl h-screen flex mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 items-center gap-4">
         {parts.map((p) => (
           <div key={p._id}>
             <div class="card max-w-lg  shadow-xl">
@@ -20,9 +20,7 @@ const Parts = () => {
                 <p>Price: {p.price}</p>
                 <p>{p.desc}</p>
               </div>
-              <button className="btn  btn-primary uppercase">
-                purchase now
-              </button>
+              <button className="btn   uppercase">purchase now</button>
             </div>
           </div>
         ))}

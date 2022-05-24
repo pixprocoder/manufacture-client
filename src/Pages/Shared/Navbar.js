@@ -4,9 +4,9 @@ import "../../Styles/Home.css";
 
 const Navbar = () => {
   return (
-    <div class="navbar ">
+    <div class="navbar">
       <div>
-        <Link to="/" class="btn btn-ghost  text-xl uppercase">
+        <Link to="/" class="  text-xl uppercase">
           Manufacture
         </Link>
       </div>

@@ -3,7 +3,7 @@ import React from "react";
 const Banner = () => {
   return (
     <div class="banner-container h-screen">
-      <div class="text-center mb-[100px]">
+      <div class="text-center ">
         <div>
           <h1 class="text-5xl font-bold">START YOUR BUSINESS</h1>
           <p class="py-6 ">
@@ -18,7 +18,6 @@ const Banner = () => {
           </button>
         </div>
       </div>
-      <h1 className="text-5xl absolute bottom-0 mb-10"> Available Parts</h1>
     </div>
   );
 };
