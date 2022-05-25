@@ -1,9 +1,15 @@
 import React from "react";
-import footer from "../../images/footer.png";
+import footer from "../../images/parts.jpg";
 
 const Footer = () => {
   return (
-    <section style={{ background: `url(${footer})`, backgroundSize: "cover" }}>
+    <section
+      style={{
+        background: `url(${footer})`,
+        backgroundSize: "cover",
+        color: "white",
+      }}
+    >
       <footer class="footer p-10 ">
         <div>
           <p>

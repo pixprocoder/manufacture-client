@@ -17,23 +17,41 @@
   position: absolute;
   width: 100%;
   height: 100%;
-
   z-index: -1;
   opacity: 0.5;
-  background: url("../canada.jpg") no-repeat center center/cover;
+  background: url("../canada.jpg ") no-repeat center center/cover;
+}
+.about-container::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.7;
+  background: url("../images/parts.jpg") no-repeat center center/cover;
+}
+.contact-container::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.5;
+  background: url("../images/contact.jpg") no-repeat center center/cover;
 }
 .summary-container {
   background: url("../images/footer.png") no-repeat center center/cover;
   background-color: rgb(25, 23, 67);
   border-radius: 20px;
   padding: 130px 10px;
+  width: 100%;
 }
 
-.parts-container {
+.part-container {
   background-color: #fff;
   transition: 0.2s;
 }
-.parts-container:hover {
+.part-container:hover {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }

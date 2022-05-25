@@ -4,7 +4,7 @@ const useParts = () => {
   const [parts, setParts] = useState([]);
 
   useEffect(() => {
-    fetch("parts.json")
+    fetch("https://shielded-scrubland-74397.herokuapp.com/service")
       .then((res) => res.json())
       .then((data) => setParts(data));
   }, []);

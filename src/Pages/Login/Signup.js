@@ -1,15 +1,104 @@
 import React from "react";
+import {
+  useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
+import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import auth from "../../firebase.init";
 
 const Signup = () => {
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+
+  if (user || gUser) {
+    console.log("user Created success");
+  }
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    createUserWithEmailAndPassword(data.email, data.password);
+  };
+  if (loading || gLoading) {
+    return <p>Loading ..</p>;
+  }
+
   return (
-    <div>
-      <h1>Sign up here</h1>
-      <input type="text" placeholder="Name" />
-      <br />
-      <input type="email" placeholder="Email" />
-      <br />
-      <input type="password" placeholder="Password" />
-    </div>
+    <section className=" flex justify-center items-center h-screen">
+      <div className="card w-96 bg-base-100 shadow-xl">
+        <div className="card-body">
+          <h2 className="text-2xl font-extrabold text-center">
+            PLEASE SIGN UP
+          </h2>
+
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <label>
+              <span className="label">Name</span>
+            </label>
+            <input
+              className="input input-bordered w-full "
+              type="name"
+              name="name"
+              placeholder="Name"
+              {...register("name", { required: true })}
+            />
+            {errors.name?.type === "required" && "First name is required"}
+
+            <label>
+              <span className="label">Email</span>
+            </label>
+            <input
+              className="input input-bordered w-full "
+              type="email"
+              name="email"
+              placeholder="Email"
+              {...register("email", { required: true })}
+            />
+
+            <label>
+              {errors.email?.type === "required" && (
+                <span className="label">{errors.email.massage}</span>
+              )}
+            </label>
+
+            <label>
+              <span className="label">Password</span>
+            </label>
+            <input
+              className="input input-bordered w-full "
+              name="password"
+              placeholder="Password"
+              {...register("password", { required: true })}
+            />
+            {errors.password && "password  is required"}
+            <input
+              className="btn btn-secondary w-full mt-10"
+              type="submit"
+              value="SIGN UP"
+            />
+          </form>
+
+          <p>
+            Already have an account?{" "}
+            <Link className="text-primary" to="/login">
+              LOGIN NOW
+            </Link>
+          </p>
+          <div className="divider">OR</div>
+          <button
+            onClick={() => signInWithGoogle()}
+            className="btn btn-outline btn-secondary"
+          >
+            Continue with Google
+          </button>
+        </div>
+      </div>
+    </section>
   );
 };
 
