@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home/Home";
-import Footer from "./Pages/Shared/Footer";
 import Navbar from "./Pages/Shared/Navbar";
 import Login from "./Pages/Login/Login";
 import Signup from "./Pages/Login/Signup";
@@ -9,6 +8,9 @@ import About from "./Pages/About/About";
 import Purchase from "./Pages/Home/Sections/Parts/Purchase";
 import RequireAuth from "./Pages/Login/RequireAuth";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import MyProfile from "./Pages/Dashboard/MyProfile";
+import MyReview from "./Pages/Dashboard/MyReview";
+import MyOrder from "./Pages/Dashboard/MyOrder";
 
 function App() {
   return (
@@ -34,11 +36,14 @@ function App() {
               <Dashboard />
             </RequireAuth>
           }
-        />
+        >
+          <Route index element={<MyProfile />}></Route>
+          <Route path="myReview" element={<MyReview />}></Route>
+          <Route path="myOrder" element={<MyOrder />}></Route>
+        </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
-      <Footer />
     </>
   );
 }
