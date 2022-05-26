@@ -21,6 +21,13 @@ const Navbar = () => {
               HOME
             </Link>
           </li>
+          {user && (
+            <li>
+              <Link to="/dashboard" className="mx-2">
+                DASHBOARD
+              </Link>
+            </li>
+          )}
           <li>
             <Link to="/about" className="mx-2">
               ABOUT

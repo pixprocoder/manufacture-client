@@ -4,11 +4,10 @@ import { useParams } from "react-router-dom";
 const Purchase = () => {
   const { purchaseId } = useParams();
   const [purchase, setPurchase] = useState({});
-  console.log(purchase);
   const { name, img, min_quantity, available_quantity, price, desc } = purchase;
 
   useEffect(() => {
-    const url = `http://localhost:5000/service/${purchaseId}`;
+    const url = `https://shielded-scrubland-74397.herokuapp.com/service/${purchaseId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setPurchase(data));

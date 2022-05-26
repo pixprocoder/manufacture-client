@@ -1,32 +1,39 @@
+import { async } from "@firebase/util";
 import React from "react";
 import {
   useCreateUserWithEmailAndPassword,
   useSignInWithGoogle,
+  useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 
 const Signup = () => {
+  const [updateProfile, updating, uError] = useUpdateProfile(auth);
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+  const navigate = useNavigate();
+  const { register, handleSubmit } = useForm();
 
   if (user || gUser) {
     console.log("user Created success");
   }
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => {
-    createUserWithEmailAndPassword(data.email, data.password);
-  };
-  if (loading || gLoading) {
+
+  if (loading || gLoading || updating) {
     return <p>Loading ..</p>;
   }
+  let errorMassage;
+  if (error || gError || uError) {
+    errorMassage = <p>{error?.message || gError?.message || uError}</p>;
+  }
+
+  const onSubmit = async (data) => {
+    await createUserWithEmailAndPassword(data.email, data.password);
+    await updateProfile({ displayName: data.name });
+    navigate("/");
+  };
 
   return (
     <section className=" flex justify-center items-center h-screen">
@@ -47,8 +54,6 @@ const Signup = () => {
               placeholder="Name"
               {...register("name", { required: true })}
             />
-            {errors.name?.type === "required" && "First name is required"}
-
             <label>
               <span className="label">Email</span>
             </label>
@@ -59,13 +64,7 @@ const Signup = () => {
               placeholder="Email"
               {...register("email", { required: true })}
             />
-
-            <label>
-              {errors.email?.type === "required" && (
-                <span className="label">{errors.email.massage}</span>
-              )}
-            </label>
-
+            >
             <label>
               <span className="label">Password</span>
             </label>
@@ -75,12 +74,12 @@ const Signup = () => {
               placeholder="Password"
               {...register("password", { required: true })}
             />
-            {errors.password && "password  is required"}
             <input
               className="btn btn-secondary w-full mt-10"
               type="submit"
               value="SIGN UP"
             />
+            {errorMassage}
           </form>
 
           <p>
