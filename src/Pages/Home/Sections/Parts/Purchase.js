@@ -19,7 +19,6 @@ const Purchase = () => {
       phone: e.target.phone.value,
       address: e.target.address.value,
     };
-    console.log(purchaseInfo);
   };
 
   useEffect(() => {
