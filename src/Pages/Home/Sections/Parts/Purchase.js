@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../../../../firebase.init";
 
 const Purchase = () => {
@@ -19,6 +20,18 @@ const Purchase = () => {
       phone: e.target.phone.value,
       address: e.target.address.value,
     };
+
+    fetch("http://localhost:5000/purchase", {
+      method: "POST",
+      Headers: {
+        "content-type": "application.json",
+      },
+      body: JSON.stringify(purchaseInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
   };
 
   useEffect(() => {
@@ -101,9 +114,11 @@ const Purchase = () => {
                   class="input my-2 input-bordered text-xl  input-md w-full px-4"
                 />
 
-                <button class="purchase-btn p-2 w-[50%] font-bold mx-auto block my-2 ">
-                  ORDER NOW
-                </button>
+                <input
+                  type="submit"
+                  value="ORDER NOW"
+                  class="purchase-btn p-2 w-[50%] font-bold mx-auto block my-2 "
+                ></input>
               </div>
             </form>
           </div>
