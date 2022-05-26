@@ -22,12 +22,12 @@ const Login = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
     signInWithEmailAndPassword(data.email, data.password);
   };
+
   if (loading || gLoading) {
     return <Loading />;
   }
@@ -66,11 +66,7 @@ const Login = () => {
             />
             {errors.password && "password  is required"}
             {/* <p>{errorMassage}</p> */}
-            <input
-              className="btn btn-secondary w-full mt-10"
-              type="submit"
-              value="LOGIN"
-            />
+            <input className="btn  w-full mt-10" type="submit" value="LOGIN" />
           </form>
           <p>
             New to here?{" "}
@@ -79,10 +75,7 @@ const Login = () => {
             </Link>
           </p>
           <div className="divider">OR</div>
-          <button
-            onClick={() => signInWithGoogle()}
-            className="btn btn-outline btn-secondary"
-          >
+          <button onClick={() => signInWithGoogle()} className="btn">
             Continue with Google
           </button>
         </div>
