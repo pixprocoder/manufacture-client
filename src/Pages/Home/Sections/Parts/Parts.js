@@ -35,14 +35,7 @@ const Parts = () => {
                   <p>{p.desc}</p>
                 </div>
                 <button
-                  style={{
-                    width: "50%",
-                    margin: "auto",
-                    borderRadius: "10px",
-                    backgroundColor: "#e7e7fb",
-                    marginBottom: "5px",
-                  }}
-                  className="d-block py-2 px-4 uppercase"
+                  className="purchase-btn d-block py-2 px-4 uppercase"
                   onClick={() => handlePurchases(p._id)}
                 >
                   purchase
