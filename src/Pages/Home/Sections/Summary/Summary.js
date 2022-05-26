@@ -13,52 +13,58 @@ const Summary = () => {
         Business Summary
       </h1>
       <div className="summary-container max-w-screen-2xl mx-auto py-20 ">
-        <div class=" bg-transparent grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          <div class="stat flex flex-col justify-center items-center ">
-            <div class="avatar ">
-              <div class="w-32 rounded-full">
+        <div className=" bg-transparent grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="stat flex flex-col justify-center items-center ">
+            <div className="avatar ">
+              <div className="w-32 rounded-full">
                 <img src={img3} alt="" />
               </div>
             </div>
             <div className="mt-6">
-              <p class="stat-value text-primary text-5xl text-center">550+</p>
-              <p class="text-2xl text-white ">Complete projects</p>
+              <p className="stat-value text-primary text-5xl text-center">
+                550+
+              </p>
+              <p className="text-2xl text-white ">Complete projects</p>
             </div>
           </div>
 
-          <div class="stat flex flex-col justify-center items-center ">
-            <div class="avatar ">
-              <div class="w-32 rounded-full">
+          <div className="stat flex flex-col justify-center items-center ">
+            <div className="avatar ">
+              <div className="w-32 rounded-full">
                 <img src={img2} alt="" />
               </div>
             </div>
             <div className="mt-6">
-              <p class="stat-value text-primary text-5xl text-center">99</p>
-              <p class="text-2xl text-white ">Countries</p>
+              <p className="stat-value text-primary text-5xl text-center">99</p>
+              <p className="text-2xl text-white ">Countries</p>
             </div>
           </div>
 
-          <div class="stat flex flex-col justify-center items-center ">
-            <div class="avatar ">
-              <div class="w-32 rounded-full">
+          <div className="stat flex flex-col justify-center items-center ">
+            <div className="avatar ">
+              <div className="w-32 rounded-full">
                 <img src={img1} alt="" />
               </div>
             </div>
             <div className="mt-6">
-              <p class="stat-value text-primary text-5xl text-center">355+</p>
-              <p class="text-2xl text-white ">Happy clients</p>
+              <p className="stat-value text-primary text-5xl text-center">
+                355+
+              </p>
+              <p className="text-2xl text-white ">Happy clients</p>
             </div>
           </div>
 
-          <div class="stat flex flex-col justify-center items-center ">
-            <div class="avatar ">
-              <div class="w-32 rounded-full">
+          <div className="stat flex flex-col justify-center items-center ">
+            <div className="avatar ">
+              <div className="w-32 rounded-full">
                 <img src={img4} alt="" />
               </div>
             </div>
             <div className="mt-6">
-              <p class="stat-value text-primary text-5xl text-center">1052+</p>
-              <p class="text-2xl text-white ">Feedbacks</p>
+              <p className="stat-value text-primary text-5xl text-center">
+                1052+
+              </p>
+              <p className="text-2xl text-white ">Feedbacks</p>
             </div>
           </div>
         </div>
