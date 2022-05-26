@@ -1,6 +1,6 @@
 import React from "react";
 
-const MyReview = () => {
+const AddReview = () => {
   return (
     <div>
       <h1>My review</h1>
@@ -8,4 +8,4 @@ const MyReview = () => {
   );
 };
 
-export default MyReview;
+export default AddReview;

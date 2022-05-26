@@ -21,10 +21,10 @@ const Dashboard = () => {
           <label for="my-drawer-2" class="drawer-overlay"></label>
           <ul class="menu p-4 overflow-y-auto w-80 bg-orange-200 text-base-content">
             <li>
-              <Link to="/dashboard">Dashboard</Link>
+              <Link to="/dashboard">MY PROFILE</Link>
             </li>
             <li>
-              <Link to="/dashboard/myReview">My review</Link>
+              <Link to="/dashboard/addReview">Add a review</Link>
             </li>
             <li>
               <Link to="myOrder">My Order</Link>

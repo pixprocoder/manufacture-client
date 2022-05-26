@@ -1,10 +1,26 @@
 import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useParams } from "react-router-dom";
+import auth from "../../../../firebase.init";
 
 const Purchase = () => {
+  const [user] = useAuthState(auth);
+
   const { purchaseId } = useParams();
   const [purchase, setPurchase] = useState({});
   const { name, img, min_quantity, available_quantity, price, desc } = purchase;
+
+  const handlePurchase = (e) => {
+    e.preventDefault();
+    const purchaseInfo = {
+      name: name,
+      person: user.displayName,
+      email: user.email,
+      phone: e.target.phone.value,
+      address: e.target.address.value,
+    };
+    console.log(purchaseInfo);
+  };
 
   useEffect(() => {
     const url = `https://shielded-scrubland-74397.herokuapp.com/service/${purchaseId}`;
@@ -47,30 +63,48 @@ const Purchase = () => {
             </div>
           </div>
           <div className="flex flex-col justify-center items-center w-full md:w-full lg:w-[50%]">
-            <form>
+            <form onSubmit={handlePurchase}>
               <div class="w-full rounded-lg px-12 mx-auto shadow-xl">
                 <input
                   type="text"
-                  placeholder="Type here"
-                  class="input my-2 input-bordered input-md w-full px-4"
+                  value={name}
+                  disabled
+                  readOnly
+                  class="input my-2 input-bordered text-xl font-semibold  input-md w-full px-4"
                 />
                 <input
                   type="text"
-                  placeholder="Type here"
-                  class="input my-2 input-bordered input-md w-full px-4"
+                  value={user.displayName}
+                  disabled
+                  readOnly
+                  class="input my-2 input-bordered text-xl  input-md w-full px-4"
                 />
                 <input
                   type="text"
+                  value={user.email}
+                  disabled
+                  readOnly
                   placeholder="Type here"
-                  class="input my-2 input-bordered input-md w-full px-4"
+                  class="input my-2 input-bordered text-xl  input-md w-full px-4"
                 />
                 <input
                   type="text"
-                  placeholder="Type here"
-                  class="input my-2 input-bordered input-md w-full px-4"
+                  name="phone"
+                  placeholder="Enter Phone number"
+                  autoComplete="off"
+                  class="input my-2 input-bordered text-xl  input-md w-full px-4"
+                />
+                <input
+                  type="text"
+                  name="address"
+                  placeholder="Enter Address"
+                  autoComplete="off"
+                  class="input my-2 input-bordered text-xl  input-md w-full px-4"
                 />
 
-                <button class="btn w-[50%] mx-auto block my-2 ">Buy Now</button>
+                <button class="purchase-btn p-2 w-[50%] font-bold mx-auto block my-2 ">
+                  ORDER NOW
+                </button>
               </div>
             </form>
           </div>
