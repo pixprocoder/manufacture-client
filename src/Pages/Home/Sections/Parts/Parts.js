@@ -25,7 +25,11 @@ const Parts = () => {
             <div key={p._id}>
               <div className="part-container card   shadow-xl">
                 <figure>
-                  <img src={p.img} alt="Shoes" />
+                  <img
+                    className="max-h-72 rounded-lg"
+                    src={p.img}
+                    alt="Shoes"
+                  />
                 </figure>
                 <div className="card-body">
                   <h2 className="font-bold text-2xl">{p.name}</h2>

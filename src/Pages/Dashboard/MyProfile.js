@@ -1,16 +1,35 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 
 const MyProfile = () => {
+  const [user] = useAuthState(auth);
   return (
-    <div className="h-screen flex justify-center items-center">
-      <h1>My Profile here</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum,
-        sapiente rerum aliquam, fuga est reiciendis laborum adipisci ratione
-        nesciunt, autem voluptas provident iusto obcaecati! Temporibus voluptas
-        alias ipsum laborum facere.
-      </p>
-    </div>
+    <section>
+      <h1 className="text-xl text-center text-blue-700 font-extrabold uppercase my-2">
+        My Profile info
+      </h1>
+      <div class="card max-w-2xl mx-auto  shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">{user.displayName}</h2>
+          <p>{user.email}</p>
+          <div>
+            <h1 className="uppercase text-2xl mb-2 underline">Add more Info</h1>
+            <input
+              type="text"
+              placeholder="Your address"
+              class="input my-2 input-bordered p-3 input-sm w-full max-w-xs"
+            />
+            <input
+              type="text"
+              placeholder="Your Phone number"
+              class="input my-2 input-bordered p-3 input-sm w-full max-w-xs"
+            />
+            <button className="btn btn-sm btn-primary block">SAVE</button>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

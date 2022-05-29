@@ -1,4 +1,3 @@
-import { async } from "@firebase/util";
 import React from "react";
 import {
   useCreateUserWithEmailAndPassword,
@@ -8,17 +7,20 @@ import {
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
+import useToken from "../../hooks/useToken";
 
 const Signup = () => {
-  const [updateProfile, updating, uError] = useUpdateProfile(auth);
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
 
-  if (user || gUser) {
-    console.log("user Created success");
+  const [updateProfile, updating, uError] = useUpdateProfile(auth);
+  const [token] = useToken(user || gUser);
+
+  if (token) {
+    navigate("/");
   }
 
   if (loading || gLoading || updating) {
@@ -32,7 +34,6 @@ const Signup = () => {
   const onSubmit = async (data) => {
     await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName: data.name });
-    navigate("/");
   };
 
   return (
@@ -64,22 +65,24 @@ const Signup = () => {
               placeholder="Email"
               {...register("email", { required: true })}
             />
-            >
+
             <label>
               <span className="label">Password</span>
             </label>
             <input
               className="input input-bordered w-full "
+              type="password"
+              autoComplete="off"
               name="password"
               placeholder="Password"
               {...register("password", { required: true })}
             />
+            {errorMassage}
             <input
               className="btn btn-secondary w-full mt-10"
               type="submit"
               value="SIGN UP"
             />
-            {errorMassage}
           </form>
 
           <p>

@@ -7,6 +7,12 @@ import "../../Styles/Style.css";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
+
+  const logout = () => {
+    signOut(auth);
+    localStorage.removeItem("accessToken");
+  };
+
   return (
     <div className="navbar">
       <div>
@@ -34,6 +40,11 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
+            <Link to="/blog" className="mx-2">
+              BLOG
+            </Link>
+          </li>
+          <li>
             <Link to="/contact" className="mx-2" href="/">
               CONTACT
             </Link>
@@ -42,7 +53,7 @@ const Navbar = () => {
       </div>
       <div className="flex-none">
         {user ? (
-          <Link onClick={() => signOut(auth)} to="/login">
+          <Link onClick={logout} to="/login">
             LOG OUT
           </Link>
         ) : (

@@ -14,6 +14,7 @@ import MyOrder from "./Pages/Dashboard/MyOrder";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ErrorPage from "./Pages/Shared/ErrorPage";
+import Blog from "./Blog/Blog";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/blog" element={<Blog />} />
         <Route
           path="/purchase/:purchaseId"
           element={

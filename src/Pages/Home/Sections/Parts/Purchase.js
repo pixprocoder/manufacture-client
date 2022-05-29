@@ -23,14 +23,14 @@ const Purchase = () => {
 
     fetch("http://localhost:5000/purchase", {
       method: "POST",
-      Headers: {
-        "content-type": "application.json",
+      headers: {
+        "content-type": "application/json",
       },
       body: JSON.stringify(purchaseInfo),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        toast.success("Your order is booked");
       });
   };
 
@@ -42,10 +42,12 @@ const Purchase = () => {
   }, [purchaseId]);
   return (
     <section className="purchase-container ">
-      <div className="max-w-screen-2xl mx-auto ">
-        <div className="h-screen flex-col   md:flex-col lg:flex-row flex justify-around  items-center">
+      <div className="max-w-screen-2xl mx-auto h-screen">
+        <div className=" flex-col   md:flex-col lg:flex-row flex justify-around  items-center">
           <div>
-            <img className="rounded-lg" src={img} alt="" />
+            <div>
+              <img className="rounded-lg max-h-96" src={img} alt="" />
+            </div>
             <div className="space-y-4">
               <h1 className="text-center text-white text-3xl my-2 uppercase">
                 {" "}
@@ -75,51 +77,52 @@ const Purchase = () => {
             </div>
           </div>
           <div className="flex flex-col justify-center items-center w-full md:w-full lg:w-[50%]">
-            <form onSubmit={handlePurchase}>
-              <div class="w-full rounded-lg px-12 mx-auto shadow-xl">
-                <input
-                  type="text"
-                  value={name}
-                  disabled
-                  readOnly
-                  class="input my-2 input-bordered text-xl font-semibold  input-md w-full px-4"
-                />
-                <input
-                  type="text"
-                  value={user.displayName}
-                  disabled
-                  readOnly
-                  class="input my-2 input-bordered text-xl  input-md w-full px-4"
-                />
-                <input
-                  type="text"
-                  value={user.email}
-                  disabled
-                  readOnly
-                  placeholder="Type here"
-                  class="input my-2 input-bordered text-xl  input-md w-full px-4"
-                />
-                <input
-                  type="text"
-                  name="phone"
-                  placeholder="Enter Phone number"
-                  autoComplete="off"
-                  class="input my-2 input-bordered text-xl  input-md w-full px-4"
-                />
-                <input
-                  type="text"
-                  name="address"
-                  placeholder="Enter Address"
-                  autoComplete="off"
-                  class="input my-2 input-bordered text-xl  input-md w-full px-4"
-                />
+            <form
+              className="w-full rounded-lg px-12 mx-auto shadow-xl"
+              onSubmit={handlePurchase}
+            >
+              <input
+                type="text"
+                value={name}
+                disabled
+                readOnly
+                className="input my-2 input-bordered text-xl font-semibold  input-md w-full px-4"
+              />
+              <input
+                type="text"
+                value={user.displayName}
+                disabled
+                readOnly
+                className="input my-2 input-bordered text-xl  input-md w-full px-4"
+              />
+              <input
+                type="text"
+                value={user.email}
+                disabled
+                readOnly
+                placeholder="Type here"
+                className="input my-2 input-bordered text-xl  input-md w-full px-4"
+              />
+              <input
+                type="text"
+                name="phone"
+                placeholder="Enter Phone number"
+                autoComplete="off"
+                className="input my-2 input-bordered text-xl  input-md w-full px-4"
+              />
+              <input
+                type="text"
+                name="address"
+                placeholder="Enter Address"
+                autoComplete="off"
+                className="input my-2 input-bordered text-xl  input-md w-full px-4"
+              />
 
-                <input
-                  type="submit"
-                  value="ORDER NOW"
-                  class="purchase-btn p-2 w-[50%] font-bold mx-auto block my-2 "
-                ></input>
-              </div>
+              <input
+                type="submit"
+                value="ORDER NOW"
+                className="border-2 rounded-md hover:bg-slate-700 cursor-pointer text-white p-2 w-[50%] font-bold mx-auto block my-2 "
+              ></input>
             </form>
           </div>
         </div>
