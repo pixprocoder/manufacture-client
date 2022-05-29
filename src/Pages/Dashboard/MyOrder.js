@@ -27,9 +27,7 @@ const MyOrder = () => {
   return (
     <section>
       <h1 className="text-xl text-center my-2 uppercase text-blue-900 font-extrabold">
-        {orders.length < 0
-          ? `my order ${orders.length}`
-          : `my orders ${orders.length}`}
+        {orders.length > 0 ? `my orders ${orders.length}` : `my order`}
       </h1>
       <div>
         {orders.map((order) => (

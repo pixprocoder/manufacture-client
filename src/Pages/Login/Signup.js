@@ -53,6 +53,7 @@ const Signup = () => {
               type="name"
               name="name"
               placeholder="Name"
+              required
               {...register("name", { required: true })}
             />
             <label>

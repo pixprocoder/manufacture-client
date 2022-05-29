@@ -16,7 +16,10 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div>
-        <Link to="/" className="  text-xl uppercase">
+        <Link
+          to="/"
+          className=" text-blue-900 font-extrabold  text-2xl uppercase"
+        >
           Manufacture
         </Link>
       </div>

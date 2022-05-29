@@ -6,6 +6,7 @@ import auth from "../../../../firebase.init";
 
 const Purchase = () => {
   const [user] = useAuthState(auth);
+  console.log(user);
 
   const { purchaseId } = useParams();
   const [purchase, setPurchase] = useState({});
@@ -90,7 +91,7 @@ const Purchase = () => {
               />
               <input
                 type="text"
-                value={user.displayName}
+                value={user.displayName || user.name}
                 disabled
                 readOnly
                 className="input my-2 input-bordered text-xl  input-md w-full px-4"
