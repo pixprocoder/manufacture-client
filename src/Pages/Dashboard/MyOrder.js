@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import MyOrderDetails from "./MyOrderDetails";
 
 const MyOrder = () => {
-  const [order, setOrder] = useState([]);
+  const [orders, setOrders] = useState([]);
   const [user] = useAuthState(auth);
 
   useEffect(() => {
@@ -18,15 +19,24 @@ const MyOrder = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          setOrder(data);
+          setOrders(data);
         });
     }
   }, [user]);
 
   return (
-    <div>
-      <h1>yah Im in my order component {order.length}</h1>
-    </div>
+    <section>
+      <h1 className="text-xl text-center my-2 uppercase text-blue-900 font-extrabold">
+        {orders.length < 0
+          ? `my order ${orders.length}`
+          : `my orders ${orders.length}`}
+      </h1>
+      <div>
+        {orders.map((order) => (
+          <MyOrderDetails key={order._id} order={order} />
+        ))}
+      </div>
+    </section>
   );
 };
 

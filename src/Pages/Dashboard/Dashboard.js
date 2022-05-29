@@ -4,8 +4,8 @@ import { Link, Outlet } from "react-router-dom";
 const Dashboard = () => {
   return (
     <section className="dashboard-container max-w-screen-2xl mx-auto gap-2 grid">
-      <div className="w-auto text-xl">
-        <ul className="text-base-content">
+      <div className="mx-auto text-xl">
+        <ul className="text-orange-600 font-bold">
           <li className="mb-2 px-4">
             <Link to="/dashboard">MY PROFILE</Link>
           </li>
