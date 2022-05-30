@@ -25,7 +25,9 @@ const MyProfile = () => {
               placeholder="Your Phone number"
               class="input my-2 input-bordered p-3 input-sm w-full max-w-xs"
             />
-            <button className="btn btn-sm btn-primary block">SAVE</button>
+            <button className="px-8 py-2 rounded-md bg-orange-600 hover:bg-orange-800 text-xl text-white font-bold block">
+              SAVE
+            </button>
           </div>
         </div>
       </div>

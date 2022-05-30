@@ -4,12 +4,15 @@ const UsersDetails = ({ user, refetch }) => {
   const { email, status } = user;
 
   const makeAnAdmin = () => {
-    fetch(`http://localhost:5000/user/admin/${email}`, {
-      method: "PUT",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
+    fetch(
+      `https://shielded-scrubland-74397.herokuapp.com/user/admin/${email}`,
+      {
+        method: "PUT",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    )
       .then((res) => {
         console.log("response", res);
 

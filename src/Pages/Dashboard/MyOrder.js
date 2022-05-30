@@ -13,7 +13,7 @@ const MyOrder = () => {
   useEffect(() => {
     if (user) {
       const email = user?.email;
-      const url = `http://localhost:5000/purchase?email=${email}`;
+      const url = `https://shielded-scrubland-74397.herokuapp.com/purchase?email=${email}`;
       fetch(url, {
         method: "GET",
         headers: {
@@ -31,7 +31,7 @@ const MyOrder = () => {
           setOrders(data);
         });
     }
-  }, [user]);
+  }, [user, navigate]);
 
   return (
     <section>
