@@ -1,6 +1,6 @@
 import React from "react";
 
-const UsersDetails = ({ user }) => {
+const UsersDetails = ({ user, refetch }) => {
   const { email, status } = user;
 
   const makeAnAdmin = () => {
@@ -10,9 +10,14 @@ const UsersDetails = ({ user }) => {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     })
-      .then((res) => res.json())
+      .then((res) => {
+        console.log("response", res);
+
+        return res.json();
+      })
       .then((data) => {
         console.log(data);
+        refetch();
       });
   };
 

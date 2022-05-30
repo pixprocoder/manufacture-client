@@ -16,6 +16,7 @@ import "react-toastify/dist/ReactToastify.css";
 import ErrorPage from "./Pages/Shared/ErrorPage";
 import Blog from "./Blog/Blog";
 import Users from "./Pages/Dashboard/Users";
+import RequireAdmin from "./Pages/Login/RequireAdmin";
 
 function App() {
   return (
@@ -46,7 +47,14 @@ function App() {
           <Route index element={<MyProfile />}></Route>
           <Route path="myOrder" element={<MyOrder />}></Route>
           <Route path="addReview" element={<AddReview />}></Route>
-          <Route path="allUser" element={<Users />}></Route>
+          <Route
+            path="allUser"
+            element={
+              <RequireAdmin>
+                <Users />
+              </RequireAdmin>
+            }
+          ></Route>
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />

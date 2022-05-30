@@ -1,7 +1,13 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
+import useAdmin from "../../hooks/useAdmin";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 
 const Dashboard = () => {
+  const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
+
   return (
     <section className="dashboard-container max-w-screen-2xl mx-auto gap-2 grid">
       <div className="mx-auto text-xl">
@@ -16,7 +22,7 @@ const Dashboard = () => {
             <Link to="/dashboard/addReview">ADD REVIEW</Link>
           </li>
           <li className="mb-2 px-4">
-            <Link to="/dashboard/allUser">ALL USER</Link>
+            {admin && <Link to="/dashboard/allUser">ALL USER</Link>}
           </li>
         </ul>
       </div>

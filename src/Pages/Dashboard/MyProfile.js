@@ -11,8 +11,8 @@ const MyProfile = () => {
       </h1>
       <div class="card max-w-2xl mx-auto  shadow-xl">
         <div class="card-body">
-          <h2 class="card-title">{user.displayName}</h2>
-          <p>{user.email}</p>
+          <h2 class="card-title">{user?.displayName}</h2>
+          <p>{user?.email}</p>
           <div>
             <h1 className="uppercase text-2xl mb-2 underline">Add more Info</h1>
             <input
