@@ -12,7 +12,7 @@ const Banner = () => {
             repudiandae et a id nisi. yes you can do this.
           </p>
 
-          <button className="btn btn-outline btn-primary rounded-3xl">
+          <button className="px-8 py-2 rounded-3xl bg-orange-600 hover:bg-orange-800 text-xl text-white font-bold ">
             {" "}
             START YOUR JOURNEY
           </button>
