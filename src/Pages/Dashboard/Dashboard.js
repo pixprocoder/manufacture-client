@@ -15,6 +15,9 @@ const Dashboard = () => {
           <li className="mb-2 px-4">
             <Link to="/dashboard/addReview">ADD REVIEW</Link>
           </li>
+          <li className="mb-2 px-4">
+            <Link to="/dashboard/allUser">ALL USER</Link>
+          </li>
         </ul>
       </div>
       <div>

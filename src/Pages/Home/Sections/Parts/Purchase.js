@@ -107,6 +107,7 @@ const Purchase = () => {
               <input
                 type="text"
                 name="phone"
+                required
                 placeholder="Enter Phone number"
                 autoComplete="off"
                 className="input my-2 input-bordered text-xl  input-md w-full px-4"
@@ -115,6 +116,7 @@ const Purchase = () => {
                 type="text"
                 name="address"
                 placeholder="Enter Address"
+                required
                 autoComplete="off"
                 className="input my-2 input-bordered text-xl  input-md w-full px-4"
               />
