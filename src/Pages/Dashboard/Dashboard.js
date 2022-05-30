@@ -16,10 +16,10 @@ const Dashboard = () => {
             <Link to="/dashboard">MY PROFILE</Link>
           </li>
           <li className="mb-2 px-4">
-            <Link to="myOrder">MY ORDER</Link>
+            {!admin && <Link to="myOrder">MY ORDER</Link>}
           </li>
           <li className="mb-2 px-4">
-            <Link to="/dashboard/addReview">ADD REVIEW</Link>
+            {!admin && <Link to="/dashboard/addReview">ADD REVIEW</Link>}
           </li>
           <li className="mb-2 px-4">
             {admin && <Link to="/dashboard/allUser">ALL USER</Link>}
