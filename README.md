@@ -10,4 +10,4 @@
 
 - React.js
 - Bootstrap
-- daisy ui
+- Tailwind
