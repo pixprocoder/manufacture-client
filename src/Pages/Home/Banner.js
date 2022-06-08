@@ -1,22 +1,45 @@
 import React from "react";
+import banner from "../../images/contactUs.jpg";
 
 const Banner = () => {
   return (
-    <div className="banner-container h-screen">
-      <div className="text-center ">
-        <div>
-          <h1 className="text-5xl font-bold">START YOUR BUSINESS WITH US</h1>
-          <p className="py-6 ">
-            hello there, Welcome to our website. We are looking for you!
-          </p>
-
-          <button className="px-8 py-2 rounded-3xl bg-orange-600 hover:bg-orange-800 text-xl text-white font-bold ">
-            {" "}
-            Explore more
-          </button>
+    <section>
+      <div
+        id="carouselExampleControls"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src={banner} class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item">
+            <img src={banner} class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item">
+            <img src={banner} class="d-block w-100" alt="..." />
+          </div>
         </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-    </div>
+    </section>
   );
 };
 

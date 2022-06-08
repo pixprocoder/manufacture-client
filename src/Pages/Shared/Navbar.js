@@ -3,7 +3,8 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
-import "../../Styles/Style.css";
+
+import "../../App.css";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
@@ -14,56 +15,81 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar">
-      <div>
-        <Link
-          to="/"
-          className=" text-blue-900 font-extrabold  text-2xl uppercase"
-        >
-          Manufacture
-        </Link>
-      </div>
-      <div>
-        <ul className="flex">
-          <li>
-            <Link to="/home" className="mx-2">
-              HOME
-            </Link>
-          </li>
-          {user && (
-            <li>
-              <Link to="/dashboard" className="mx-2">
-                DASHBOARD
-              </Link>
-            </li>
-          )}
-          <li>
-            <Link to="/about" className="mx-2">
-              ABOUT
-            </Link>
-          </li>
-          <li>
-            <Link to="/blog" className="mx-2">
-              BLOG
-            </Link>
-          </li>
-          <li>
-            <Link to="/contact" className="mx-2" href="/">
-              CONTACT
-            </Link>
-          </li>
-        </ul>
-      </div>
-      <div className="flex-none">
-        {user ? (
-          <Link onClick={logout} to="/login">
-            LOG OUT
+    <header>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="container nav-container">
+          <Link className="text-4xl navbar-brand text-danger" to="/">
+            T-service
           </Link>
-        ) : (
-          <Link to="/login">LOGIN</Link>
-        )}
-      </div>
-    </div>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"> </span>
+          </button>
+
+          <div
+            className="collapse navbar-collapse flex flex-col lg:flex-row justify-center items-center lg:justify-between"
+            id="navbarSupportedContent"
+          >
+            <ul className="navbar-nav ml-10">
+              <li className="nav-item">
+                <Link
+                  to="/home"
+                  className="nav-link active"
+                  aria-current="page"
+                >
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  to="/about"
+                  className="nav-link active"
+                  aria-current="page"
+                >
+                  About
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  to="/home"
+                  className="nav-link active"
+                  aria-current="page"
+                >
+                  Blog
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  to="/home"
+                  className="nav-link active"
+                  aria-current="page"
+                >
+                  Contact
+                </Link>
+              </li>
+            </ul>
+            <div className="ml-8">
+              {!user ? (
+                <Link to="/login" className="btn btn-primary">
+                  Login
+                </Link>
+              ) : (
+                <button onClick={logout} className="btn btn-primary">
+                  Logout
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
   );
 };
 
