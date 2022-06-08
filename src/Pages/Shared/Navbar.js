@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return (
     <header>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg  navbar navbar-expand-sm  navbar-dark bg-dark">
         <div className="container nav-container">
           <Link className="text-4xl navbar-brand text-danger" to="/">
             T-service
@@ -34,7 +34,7 @@ const Navbar = () => {
           </button>
 
           <div
-            className="collapse navbar-collapse flex flex-col lg:flex-row justify-center items-center lg:justify-between"
+            className="collapse navbar-collapse flex flex-col md:flex-row lg:flex-row justify-center items-center lg:justify-between"
             id="navbarSupportedContent"
           >
             <ul className="navbar-nav ml-10">
