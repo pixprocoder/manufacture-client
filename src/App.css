@@ -8,7 +8,7 @@ header {
   grid-gap: 2rem;
   grid-template-areas:
     "header header header header"
-    "section section section aside"
+    "section section aside aside"
     "footer footer footer footer ";
 }
 .product-header {
@@ -22,4 +22,11 @@ header {
 }
 .product-description {
   grid-area: footer;
+}
+
+@media only screen and (max-width: 720px) {
+  .purchase-container {
+    display: flex;
+    flex-direction: column;
+  }
 }

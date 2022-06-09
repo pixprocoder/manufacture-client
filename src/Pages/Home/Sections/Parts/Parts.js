@@ -15,10 +15,12 @@ const Parts = () => {
 
   return (
     <section>
-      <div className="max-w-screen-2xl mx-auto pb-24">
-        <h1 className="text-center my-10 text-5xl text-indigo-900 uppercase">
-          Available parts
-        </h1>
+      <div className="max-w-screen-2xl mx-auto">
+        <div className="relative text-center ">
+          <h1 className=" text-center py-20 font-bold  text-5xl text-primary uppercase">
+            Available parts
+          </h1>
+        </div>
         {/* <PurchaseContext.Provider value="value"> */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-4">
           {parts.map((p) => (
