@@ -58,38 +58,35 @@ const Purchase = () => {
         Form
       ===========================*/}
         <form
-          className="product-form w-full rounded-lg px-12 mx-auto shadow-xl"
+          className="product-form w-full rounded-lg px-12 mx-auto shadow-xl flex flex-col justify-center "
           onSubmit={handlePurchase}
         >
-          <input
-            type="text"
-            value={name}
-            disabled
-            readOnly
-            className=" my-2 w-full px-2"
-          />
+          <h1 className="mb-2">Please Fill the Form</h1>
+        
+          <div className="flex justify-between mb-2 gap-2">
           <input
             type="text"
             value={user.displayName || user.name}
             disabled
             readOnly
-            className=" my-2  w-full px-2"
-          />
+            className="input input-bordered w-full  text-white rounded-md"
+          /> 
           <input
             type="text"
             value={user.email}
             disabled
             readOnly
             placeholder="Type here"
-            className=" my-2  w-full px-2"
+            className="input input-bordered w-full  text-white rounded-md"
           />
+          </div>
           <input
             type="text"
             name="phone"
             required
             placeholder="Enter Phone number"
             autoComplete="off"
-            className=" my-2  w-full px-2"
+            className="input input-bordered w-full mb-2 text-white rounded-md"
           />
           <input
             type="text"
@@ -97,14 +94,13 @@ const Purchase = () => {
             placeholder="Enter Address"
             required
             autoComplete="off"
-            className=" my-2  w-full px-2"
+            className=" input input-bordered w-full text-white rounded-md"
           />
 
-          <input
+          <button
             type="submit"
-            value="ORDER NOW"
-            className=" border-2 rounded-md bg-orange-600 hover:bg-orange-800 cursor-pointer  p-2 w-[50%] font-semibold mx-auto block text-white my-2 "
-          ></input>
+            className=" my-2 w-full btn btn-primary text-xl rounded-md"
+          >Confirm Order</button>
         </form>
 
         {/* ===================
