@@ -23,7 +23,7 @@ const Purchase = () => {
       address: e.target.address.value,
     };
 
-    fetch("https://shielded-scrubland-74397.herokuapp.com/purchase", {
+    fetch("http://localhost:5000/purchase", {
       method: "POST",
       headers: {
         "content-type": "application/json",

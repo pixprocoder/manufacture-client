@@ -5,7 +5,7 @@ const UsersDetails = ({ user, refetch }) => {
 
   const makeAnAdmin = () => {
     fetch(
-      `https://shielded-scrubland-74397.herokuapp.com/user/admin/${email}`,
+      `http://localhost:5000/user/admin/${email}`,
       {
         method: "PUT",
         headers: {
@@ -32,12 +32,12 @@ const UsersDetails = ({ user, refetch }) => {
           <td>
             {status !== "admin" && (
               <button className="btn btn-xs" onClick={makeAnAdmin}>
-                Admin
+               Make Admin
               </button>
             )}
           </td>
           <td>
-            <button className="btn btn-xs">delete</button>
+            <button className="btn btn-secondary">delete</button>
           </td>
         </div>
       </div>
@@ -45,4 +45,13 @@ const UsersDetails = ({ user, refetch }) => {
   );
 };
 
+
+
 export default UsersDetails;
+
+
+
+
+
+
+

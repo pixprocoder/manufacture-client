@@ -10,7 +10,7 @@ import CheckoutForm from "./CheckoutForm";
 // );
 const Payment = () => {
   const { id } = useParams();
-  const url = `https://shielded-scrubland-74397.herokuapp.com/purchase/${id}`;
+  const url = `http://localhost:5000/purchase/${id}`;
 
   const { data: purchase, isLoading } = useQuery(["purchase", id], () =>
     fetch(url, {

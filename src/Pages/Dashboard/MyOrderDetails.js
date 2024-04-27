@@ -5,7 +5,7 @@ const MyOrderDetails = ({ order }) => {
   const { name, _id, email, price, img } = order;
 
   const handleCancelOrder = () => {
-    fetch(`https://shielded-scrubland-74397.herokuapp.com/purchase/${_id}`, {
+    fetch(`http://localhost:5000/purchase/${_id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
