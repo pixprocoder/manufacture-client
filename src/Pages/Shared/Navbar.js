@@ -16,28 +16,15 @@ const Navbar = () => {
 
   return (
     <header>
-      <nav className="navbar navbar-expand-lg  navbar navbar-expand-sm  navbar-dark bg-dark">
-        <div className="container nav-container">
+        <nav className="container flex justify-between items-center py-4 mx-auto">
+
+          {/* Logo */}
           <Link className="text-4xl navbar-brand text-danger" to="/">
             T-service
           </Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"> </span>
-          </button>
 
-          <div
-            className="collapse navbar-collapse flex flex-col md:flex-row lg:flex-row justify-center items-center lg:justify-between"
-            id="navbarSupportedContent"
-          >
-            <ul className="navbar-nav ml-10">
+         {/* Nav Link */}
+         <ul className="flex gap-6">
               <li className="nav-item">
                 <Link
                   to="/home"
@@ -75,7 +62,9 @@ const Navbar = () => {
                 </Link>
               </li>
             </ul>
-            <div className="ml-8">
+
+            {/* Login Button */}
+          <div className="ml-8">
               {!user ? (
                 <Link to="/login" className="btn btn-primary">
                   Login
@@ -86,9 +75,8 @@ const Navbar = () => {
                 </button>
               )}
             </div>
-          </div>
-        </div>
-      </nav>
+        </nav>
+      
     </header>
   );
 };

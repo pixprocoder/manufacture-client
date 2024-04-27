@@ -43,7 +43,7 @@ const Purchase = () => {
       .then((data) => setPurchase(data));
   }, [purchaseId]);
   return (
-    <section className="container">
+    <section className="container bg-gray-200">
       <div className="purchase-container lg:grid ">
         <div className="product-header ">
           <h1 className="py-8 text-3xl text-orange-600 font-semibold text-center">
@@ -107,7 +107,7 @@ const Purchase = () => {
         Product details
         =============== */}
 
-        <div className="product-description w-full lg:w-3/6 mx-auto  rounded-lg shadow-2xl px-6 py-2 mb-10">
+        <div className="card product-description w-full lg:w-3/6 mx-auto  rounded-lg shadow-2xl px-6 py-2 mb-10">
           <h1 className="text-center text-2xl py-3">Product info</h1>
           <div className="">
             <p>
