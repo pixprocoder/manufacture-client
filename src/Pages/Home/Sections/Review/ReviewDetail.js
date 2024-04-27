@@ -10,7 +10,7 @@ const ReviewDetail = ({ review }) => {
   };
   return (
     <div>
-      <div className="card max-w-lg border-2 p-8   overflow-visible shadow-xl">
+      <div className="card max-w-lg  p-8   overflow-visible shadow-xl">
         <div className="flex-col flex items-center">
           <div className="avatar mt-[-32px] ">
             <div className="w-32 rounded-full ring-2  ring-offset-sky-200 ">
