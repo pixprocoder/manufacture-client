@@ -16,67 +16,61 @@ const Navbar = () => {
 
   return (
     <header>
-        <nav className="container flex justify-between items-center py-4 mx-auto">
+      <nav className="container flex justify-between items-center py-4 mx-auto">
+        {/* Logo */}
+        <Link className="text-4xl navbar-brand text-danger" to="/">
+          T-service
+        </Link>
 
-          {/* Logo */}
-          <Link className="text-4xl navbar-brand text-danger" to="/">
-            T-service
-          </Link>
+        {/* Nav Link */}
+        <ul className="flex gap-6">
+          <li className="nav-item">
+            <Link to="/home" className="nav-link active" aria-current="page">
+              Home
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/about" className="nav-link active" aria-current="page">
+              About
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/blog" className="nav-link active" aria-current="page">
+              Blog
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/contact" className="nav-link active" aria-current="page">
+              Contact
+            </Link>
+          </li>
+        </ul>
 
-         {/* Nav Link */}
-         <ul className="flex gap-6">
-              <li className="nav-item">
+        {/* Login Button */}
+        <div className="ml-8">
+          {!user ? (
+            <Link to="/login" className="btn btn-primary">
+              Login
+            </Link>
+          ) : (
+            <div className="flex gap-4">
+              <button className="btn btn-secondary">
                 <Link
-                  to="/home"
+                  to="/dashboard"
                   className="nav-link active"
                   aria-current="page"
                 >
-                  Home
+                  Dashboard
                 </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  to="/about"
-                  className="nav-link active"
-                  aria-current="page"
-                >
-                  About
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  to="/blog"
-                  className="nav-link active"
-                  aria-current="page"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  to="/contact"
-                  className="nav-link active"
-                  aria-current="page"
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
+              </button>
 
-            {/* Login Button */}
-          <div className="ml-8">
-              {!user ? (
-                <Link to="/login" className="btn btn-primary">
-                  Login
-                </Link>
-              ) : (
-                <button onClick={logout} className="btn btn-primary">
-                  Logout
-                </button>
-              )}
+              <button onClick={logout} className="btn btn-primary">
+                Logout
+              </button>
             </div>
-        </nav>
-      
+          )}
+        </div>
+      </nav>
     </header>
   );
 };

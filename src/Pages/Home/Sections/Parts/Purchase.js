@@ -62,23 +62,23 @@ const Purchase = () => {
           onSubmit={handlePurchase}
         >
           <h1 className="mb-2">Please Fill the Form</h1>
-        
+
           <div className="flex justify-between mb-2 gap-2">
-          <input
-            type="text"
-            value={user.displayName || user.name}
-            disabled
-            readOnly
-            className="input input-bordered w-full  text-white rounded-md"
-          /> 
-          <input
-            type="text"
-            value={user.email}
-            disabled
-            readOnly
-            placeholder="Type here"
-            className="input input-bordered w-full  text-white rounded-md"
-          />
+            <input
+              type="text"
+              value={user.displayName || user.name}
+              disabled
+              readOnly
+              className="input input-bordered w-full  text-white rounded-md"
+            />
+            <input
+              type="text"
+              value={user.email}
+              disabled
+              readOnly
+              placeholder="Type here"
+              className="input input-bordered w-full  text-white rounded-md"
+            />
           </div>
           <input
             type="text"
@@ -100,7 +100,9 @@ const Purchase = () => {
           <button
             type="submit"
             className=" my-2 w-full btn btn-primary text-xl rounded-md"
-          >Confirm Order</button>
+          >
+            Confirm Order
+          </button>
         </form>
 
         {/* ===================
