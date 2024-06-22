@@ -25,22 +25,19 @@ const Payment = () => {
   }
 
   return (
-    <div>
+    <div className="">
       <h1 className="text-center text-4xl text-orange-400 font-semibold my-2">
         Please confirm your payment
       </h1>
-      <div class="card max-w-lg  shadow-xl">
+      <div class="card max-w-lg  shadow-xl  bg-gray-900 rounded-md">
         <div class="card-body">
-          <h2 class="text-xl text-orange-500 font-bold">
-            Hello dear, {purchase.person}
-          </h2>
+          <h2 class="text-xl font-bold">Hello, {purchase.person}</h2>
           <p>
             Your product <strong>{purchase.name}</strong> is ready!
           </p>
           <p>
-            Please pay <strong>{purchase.price}</strong>
+            Total <strong className="text-orange-500">{purchase.price}</strong>
           </p>
-          <p>Thanks!!</p>
           <div class="divider"></div>
           <div>
             <Elements stripe={stripePromise}>

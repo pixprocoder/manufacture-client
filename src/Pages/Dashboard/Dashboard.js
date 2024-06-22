@@ -11,7 +11,7 @@ const Dashboard = () => {
   return (
     <section className="dashboard-container max-w-screen-2xl mx-auto gap-2 grid">
       <div className="mx-auto text-xl">
-        <ul className="text-orange-600 font-bold  min-h-screen p-4">
+        <ul className="text-orange-600 font-bold bg-gray-900  min-h-screen p-4">
           <li className="mb-2 ">
             <button className="btn btn-primary w-full ">
               <Link to="/dashboard">MY PROFILE</Link>

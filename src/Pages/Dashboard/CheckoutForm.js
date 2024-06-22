@@ -8,7 +8,7 @@ const CheckoutForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!stripe || elements) {
+    if (!stripe || !elements) {
       return;
     }
     const card = elements.getElement(CardElement);
@@ -22,8 +22,11 @@ const CheckoutForm = () => {
     });
 
     if (error) {
+      console.log("error", error);
+    } else {
+      console.log("payment methord", paymentMethod);
     }
-    setCardError(error?.message || "");
+    // setCardError(error?.message || "");
   };
   return (
     <div>
