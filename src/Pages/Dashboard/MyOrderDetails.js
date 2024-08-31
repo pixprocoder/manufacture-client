@@ -5,7 +5,7 @@ const MyOrderDetails = ({ order }) => {
   const { name, _id, email, price, img } = order;
 
   const handleCancelOrder = () => {
-    fetch(`http://localhost:5000/purchase/${_id}`, {
+    fetch(`http://localhost:5050/purchase/${_id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

@@ -23,7 +23,7 @@ const Purchase = () => {
       address: e.target.address.value,
     };
 
-    fetch("http://localhost:5000/purchase", {
+    fetch("http://localhost:5050/purchase", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -37,7 +37,7 @@ const Purchase = () => {
   };
 
   useEffect(() => {
-    const url = `http://localhost:5000/service/${purchaseId}`;
+    const url = `http://localhost:5050/service/${purchaseId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setPurchase(data));

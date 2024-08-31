@@ -4,7 +4,7 @@ const useParts = () => {
   const [parts, setParts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/service")
+    fetch("http://localhost:5050/service")
       .then((res) => res.json())
       .then((data) => setParts(data));
   }, []);

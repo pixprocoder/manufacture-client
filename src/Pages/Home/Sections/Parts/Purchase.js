@@ -23,7 +23,7 @@ const Purchase = () => {
       address: e.target.address.value,
     };
 
-    fetch("http://localhost:5000/purchase", {
+    fetch("http://localhost:5050/purchase", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -33,11 +33,12 @@ const Purchase = () => {
       .then((res) => res.json())
       .then((data) => {
         toast.success("Your order is booked");
+        e.target.value = "";
       });
   };
 
   useEffect(() => {
-    const url = `http://localhost:5000/service/${purchaseId}`;
+    const url = `http://localhost:5050/service/${purchaseId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setPurchase(data));
@@ -77,6 +78,18 @@ const Purchase = () => {
               disabled
               readOnly
               placeholder="Type here"
+              className="input input-bordered w-full  text-white rounded-md"
+            />
+          </div>
+          <div className="flex justify-between mb-2 gap-2">
+            <input
+              type="text"
+              placeholder={`Min Qty ${min_quantity}`}
+              className="input input-bordered w-full  text-white rounded-md"
+            />
+            <input
+              type="text"
+              placeholder={`Available Qty ${available_quantity}`}
               className="input input-bordered w-full  text-white rounded-md"
             />
           </div>

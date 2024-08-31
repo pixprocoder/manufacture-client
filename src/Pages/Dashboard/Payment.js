@@ -10,7 +10,7 @@ const stripePromise = loadStripe(
 );
 const Payment = () => {
   const { id } = useParams();
-  const url = `http://localhost:5000/purchase/${id}`;
+  const url = `http://localhost:5050/purchase/${id}`;
 
   const { data: purchase, isLoading } = useQuery(["purchase", id], () =>
     fetch(url, {

@@ -5,7 +5,7 @@ const UsersDetails = ({ user, refetch }) => {
 
   const makeAnAdmin = () => {
     fetch(
-      `http://localhost:5000/user/admin/${email}`,
+      `http://localhost:5050/user/admin/${email}`,
       {
         method: "PUT",
         headers: {

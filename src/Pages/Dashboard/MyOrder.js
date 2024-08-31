@@ -13,7 +13,7 @@ const MyOrder = () => {
   useEffect(() => {
     if (user) {
       const email = user?.email;
-      const url = `http://localhost:5000/purchase?email=${email}`;
+      const url = `http://localhost:5050/purchase?email=${email}`;
       fetch(url, {
         method: "GET",
         headers: {
