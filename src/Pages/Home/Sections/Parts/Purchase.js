@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import "../../../../App.css";
 import auth from "../../../../firebase.init";
+import { useForm } from "react-hook-form";
 
 const Purchase = () => {
   const [user] = useAuthState(auth);
@@ -11,16 +12,24 @@ const Purchase = () => {
   const [purchase, setPurchase] = useState({});
   const { name, img, min_quantity, available_quantity, price, desc } = purchase;
 
-  const handlePurchase = (e) => {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    reset,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
     const purchaseInfo = {
       name: name,
       person: user.displayName,
       email: user.email,
-      phone: e.target.phone.value,
       price: price,
       img: img,
-      address: e.target.address.value,
+      min_qty: data.min_qty,
+      available_qty: data.available_qty,
+      phone: data.phone,
+      address: data.address,
     };
 
     fetch("http://localhost:5050/purchase", {
@@ -33,7 +42,7 @@ const Purchase = () => {
       .then((res) => res.json())
       .then((data) => {
         toast.success("Your order is booked");
-        e.target.value = "";
+        reset();
       });
   };
 
@@ -60,7 +69,7 @@ const Purchase = () => {
       ===========================*/}
         <form
           className="product-form w-full shadow-gray-900 rounded-lg px-12 mx-auto shadow-md flex flex-col justify-center "
-          onSubmit={handlePurchase}
+          onSubmit={handleSubmit(onSubmit)}
         >
           <h1 className="mb-2">Please Fill the Form</h1>
 
@@ -82,33 +91,55 @@ const Purchase = () => {
             />
           </div>
           <div className="flex justify-between mb-2 gap-2">
-            <input
-              type="text"
-              placeholder={`Min Qty ${min_quantity}`}
-              className="input input-bordered w-full  text-white rounded-md"
-            />
-            <input
-              type="text"
-              placeholder={`Available Qty ${available_quantity}`}
-              className="input input-bordered w-full  text-white rounded-md"
-            />
+            <div className="flex flex-col">
+              <input
+                type="text"
+                {...register("min_qty", { required: true })}
+                placeholder={`Min Qty ${min_quantity}`}
+                className="input input-bordered w-full  text-white rounded-md"
+              />
+              {errors.min_qty && (
+                <span className="text-red-500 text-xs">
+                  This field is required
+                </span>
+              )}
+            </div>
+            <div className="flex flex-col">
+              <input
+                type="text"
+                {...register("available_qty", { required: true })}
+                placeholder={`Available Qty ${available_quantity}`}
+                className="input input-bordered w-full  text-white rounded-md"
+              />
+              {errors.available_qty && (
+                <span className="text-red-500 text-xs">
+                  This field is required
+                </span>
+              )}
+            </div>
           </div>
           <input
             type="text"
             name="phone"
-            required
+            {...register("phone", { required: true })}
             placeholder="Enter Phone number"
             autoComplete="off"
             className="input input-bordered w-full mb-2 text-white rounded-md"
           />
+          {errors.phone && (
+            <span className="text-red-500 text-xs">This field is required</span>
+          )}
           <input
             type="text"
             name="address"
             placeholder="Enter Address"
-            required
+            {...register("address", { required: true })}
             autoComplete="off"
             className=" input input-bordered w-full text-white rounded-md"
           />
+          {errors.address && (
+            <span className="text-red-500 text-xs">This field is required</span>
+          )}
 
           <button
             type="submit"
