@@ -36,7 +36,7 @@ const MyOrder = () => {
   return (
     <section>
       <h1 className="text-xl text-center my-2 uppercase text-blue-900 font-extrabold">
-        {orders.length > 0 ? `my orders ${orders.length}` : `my order`}
+        {orders.length > 0 ? `my orders ${orders.length}` : `NO Item Found`}
       </h1>
       <div>
         {orders.map((order) => (

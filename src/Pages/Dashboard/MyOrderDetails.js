@@ -21,10 +21,11 @@ const MyOrderDetails = ({ order }) => {
         <img className="h-40 rounded-xl" src={img} alt="" />
         <h1 className="mb-1 font-extrabold text-orange-600 text-xl">{name}</h1>
         <h1>Price: {price}</h1>
+        <p>Qty: 1</p>
       </div>
       <div className="mt-3">
         <button
-          className="px-8 py-2 rounded-md bg-orange-600 hover:bg-orange-800 text-xl text-white font-bold"
+          className="px-8 py-2 rounded-md bg-red-600 hover:bg-red-800 text-xl text-white font-bold"
           onClick={handleCancelOrder}
         >
           Cancel
